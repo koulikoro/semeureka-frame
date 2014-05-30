@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+.navbar-brand-zh {
+	font-family: '黑体'
+}
+
+.superior {
+	position: relative;
+	bottom: 0.5em;
+	font-size: 0.75em;
+}
+
+body.modal-open,.modal-open .navbar-fixed-top,.modal-open .navbar-fixed-bottom
+	{
+	margin-right: 0;
+}
+
+.modal {
+	overflow-y: auto;
+}
+
+.form-inline {
+	margin-bottom: 15px;
+}
