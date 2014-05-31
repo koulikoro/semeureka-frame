@@ -1,6 +1,7 @@
 package com.semeureka.frame.entity;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -113,6 +114,9 @@ public class Menu implements Serializable {
 	}
 
 	public List<Menu> getChildren(List<Menu> menus) {
+		if (menus == null) {
+			menus = new LinkedList<Menu>();
+		}
 		menus.add(this);
 		if (children != null) {
 			for (Menu menu : children) {
