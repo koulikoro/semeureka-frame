@@ -22,3 +22,7 @@ body.modal-open,.modal-open .navbar-fixed-top,.modal-open .navbar-fixed-bottom
 .form-inline {
 	margin-bottom: 15px;
 }
+
+.nav-tabs {
+	margin-bottom: 15px;
+}

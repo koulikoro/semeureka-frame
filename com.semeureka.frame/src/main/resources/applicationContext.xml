@@ -71,4 +71,14 @@
 			</value>
 		</property>
 	</bean>
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.net.SocketAddress">
+					<bean class="com.semeureka.frame.misc.SocketAddressEditor" />
+				</entry>
+			</map>
+		</property>
+	</bean>
 </beans>

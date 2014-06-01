@@ -45,7 +45,8 @@
 	<bean id="webBindingInitializer" class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
 		<property name="conversionService" ref="conversionService" />
 	</bean>
-	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+	</bean>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="exposeContextBeansAsAttributes" value="true" />
 		<property name="prefix" value="/WEB-INF/view/" />
@@ -60,10 +61,19 @@
 		</property>
 	</bean>
 
-
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
 		depends-on="lifecycleBeanPostProcessor" />
 	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
 		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.net.SocketAddress">
+					<bean class="com.semeureka.frame.misc.SocketAddressEditor" />
+				</entry>
+			</map>
+		</property>
 	</bean>
 </beans>
