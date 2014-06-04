@@ -14,8 +14,11 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "T_FRAME_MENU")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "parent" })
 public class Menu implements Serializable {
 	@Id
 	private Integer id;
