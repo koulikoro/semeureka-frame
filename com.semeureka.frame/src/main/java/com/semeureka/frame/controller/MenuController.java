@@ -5,12 +5,16 @@ import java.util.LinkedList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.semeureka.frame.entity.Menu;
 import com.semeureka.frame.service.MenuService;
 
@@ -51,5 +55,15 @@ public class MenuController {
 	public String delete(@PathVariable("id") Integer id) {
 		menuService.deleteById(id);
 		return "redirect:/menu";
+	}
+
+	@RequestMapping(value = "/menu/{id}/export", method = RequestMethod.GET)
+	public HttpEntity<byte[]> exprot(@PathVariable("id") Integer id) throws Exception {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+		headers.setContentDispositionFormData("attachment", "menus.xml");
+		XmlMapper mapper = new XmlMapper();
+		byte[] bytes = mapper.writeValueAsBytes(menuService.findById(id));
+		return new HttpEntity<byte[]>(bytes, headers);
 	}
 }
