@@ -86,13 +86,15 @@
 	<p class="text-center">
 		<fmt:message key="copyright" />
 	</p>
+	<jsp:include page="/WEB-INF/view/alert/alert.jsp" />
 	<script type="text/javascript">
 		function fullscreen() {
 			$('.fullscreen').toggle();
 			$('#body').toggleClass('col-sm-9 col-md-10').toggleClass('col-sm-12 col-md-12');
 			document.cookie = 'fullscreen=' + $('#navbar').is(':hidden') + ";path=${ctx};";
 		}
-		<c:if test="${cookie.fullscreen.value}">fullscreen();</c:if>
+		<c:if test="${cookie.fullscreen.value}">fullscreen();
+		</c:if>
 		$('body').on('hidden.bs.modal', '.modal', function() {
 			$(this).removeData('bs.modal');
 		});
