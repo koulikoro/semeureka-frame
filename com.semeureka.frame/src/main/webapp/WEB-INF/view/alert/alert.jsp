@@ -18,5 +18,5 @@
 	$('#alert-box').load('${ctx}/alert #alert-content');
 	setInterval(function() {
 		$('#alert-box').load('${ctx}/alert #alert-content');
-	}, 6000);
+	}, 60000);
 </script>
