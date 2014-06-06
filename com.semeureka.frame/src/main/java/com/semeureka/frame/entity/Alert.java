@@ -19,10 +19,12 @@ public class Alert implements Serializable {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@Column(name = "ALERT_TYPE")
+	private String type;
 	@Column(name = "ALERT_MESSAGE")
 	private String message;
 	@Column(name = "ALERT_URL")
-	private String url;
+	private String url = "/alert";
 	@Column(name = "ALERT_COMMENT")
 	private String comment;
 	@Column(name = "UPDATE_TIME")
@@ -34,6 +36,14 @@ public class Alert implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getMessage() {
@@ -66,5 +76,15 @@ public class Alert implements Serializable {
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public Alert() {
+	}
+
+	public Alert(String message, String url) {
+		this.message = message;
+		if (url != null) {
+			this.url = url;
+		}
 	}
 }

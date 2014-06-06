@@ -3,6 +3,9 @@ package com.semeureka.frame.controller;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.SortDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +21,16 @@ public class AlertController {
 	private AlertService alertService;
 
 	@RequestMapping(value = "")
-	public String alert(Model model) {
-		model.addAttribute("alerts", alertService.findAll());
+	public String alert(@SortDefault(direction = Direction.DESC, sort = "id") Pageable pageable,
+			Model model) {
+		model.addAttribute("alerts", alertService.findAll(pageable));
 		return "/alert/alert";
+	}
+
+	@RequestMapping(value = "/last")
+	public String last(Model model) {
+		model.addAttribute("lasts", alertService.findLastOne());
+		return "/alert/last";
 	}
 
 	@RequestMapping(value = "/{id}")

@@ -86,7 +86,7 @@
 	<p class="text-center">
 		<fmt:message key="copyright" />
 	</p>
-	<jsp:include page="/WEB-INF/view/alert/alert.jsp" />
+	<jsp:include page="/WEB-INF/view/alert/last.jsp" />
 	<script type="text/javascript">
 		function fullscreen() {
 			$('.fullscreen').toggle();
