@@ -81,10 +81,10 @@ public class Alert implements Serializable {
 	public Alert() {
 	}
 
-	public Alert(String message, String url) {
+	public Alert(String message, String type) {
 		this.message = message;
-		if (url != null) {
-			this.url = url;
+		if (type != null) {
+			this.type = type;
 		}
 	}
 }

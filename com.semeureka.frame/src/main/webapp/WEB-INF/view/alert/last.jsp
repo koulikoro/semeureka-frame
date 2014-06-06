@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <div id="alert-box">
 	<c:forEach items="${lasts.content}" var="alert" varStatus="status">
-		<div id="alert-content" class="alert alert-danger alert-dismissable"
+		<div id="alert-content" class="alert alert-${alert.type} alert-dismissable"
 			style="position: fixed; bottom: 0px; right: -35px; z-index: 2147483647">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			<strong><span class="glyphicon glyphicon-warning-sign"></span></strong>
