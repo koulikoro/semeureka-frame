@@ -10,15 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_FRAME_ROLE")
 public class Role implements Serializable {
 	@Id
-	@GeneratedValue(generator = "ROLE")
-	@SequenceGenerator(name = "ROLE", sequenceName = "HSEQ_ROLE", allocationSize = 1)
+	@GeneratedValue
 	private Integer id;
 	@Column(name = "ROLE_NAME")
 	private String name;

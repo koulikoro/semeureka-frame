@@ -10,15 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_FRAME_USER")
 public class User implements Serializable {
 	@Id
-	@GeneratedValue(generator = "USER")
-	@SequenceGenerator(name = "USER", sequenceName = "HSEQ_USER", allocationSize = 1)
+	@GeneratedValue
 	private Integer id;
 	@Column(name = "USER_NAME")
 	private String username;

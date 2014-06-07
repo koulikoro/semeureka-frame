@@ -6,15 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_FRAME_PERMISSION")
 public class Permission implements Serializable {
 	@Id
-	@GeneratedValue(generator = "PERMISSION")
-	@SequenceGenerator(name = "PERMISSION", sequenceName = "HSEQ_PERMISSION", allocationSize = 1)
+	@GeneratedValue
 	private Integer id;
 	@Column(name = "PERMISSION_VALUE")
 	private String value;
