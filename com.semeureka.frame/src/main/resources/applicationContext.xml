@@ -15,8 +15,7 @@
 	<context:component-scan base-package="com.semeureka">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	<jpa:repositories base-package="com.semeureka.*.repository"
-		entity-manager-factory-ref="entityManagerFactory" />
+	<jpa:repositories base-package="com.semeureka.*.repository" />
 	<tx:annotation-driven />
 	<task:annotation-driven />
 	<aop:aspectj-autoproxy />
